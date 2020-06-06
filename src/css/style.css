@@ -1,0 +1,232 @@
+:root {
+  --color-mode: 'light';
+  --color-dark: black;
+  --color-light: white;
+  --background: white;
+  --text-color: black;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-color);
+  transition: background 500ms ease-in-out, color 200ms ease;
+}
+
+/**
+ * Dark mode
+ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-mode: 'dark';
+  }
+  :root:not([data-user-color-scheme]) {
+    --background: var(--color-dark);
+    --text-color: var(--color-light);
+  }
+}
+[data-user-color-scheme="dark"] {
+  --background: var(--color-dark);
+  --text-color: var(--color-light);
+}
+
+/**
+ * search section 
+ */
+.searching-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-box-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.search-box {
+  font-size: 20px;
+}
+
+.recent-keywords {
+  margin-top: 10px;
+}
+
+.keyword {
+  background-color: rgb(255, 127, 0);
+  color: white;
+  border-radius: 11px;
+  padding: 5px;
+  margin-right: 8px;
+}
+
+.random-btn {
+  font-size: 50px;
+  margin-right: 10px;
+}
+
+.results-section {
+  margin-top: 3%;
+}
+
+/**
+ * notice section 
+ */
+.notice-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.notice {
+  margin-top: 8%;
+  text-align: center;
+}
+
+.notice-image {
+  height: 300px;
+  width: 350px;
+}
+
+/**
+ * card 
+ */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.cat-card {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 350px;
+
+  /**
+   * [카드 정렬하기]
+   * 한 행에 카드 최대 4개, 간격 4개
+   * (전체 넓이 - ( 카드 넓이 * 4 ) / 4)
+   */
+  margin-left: calc((100% - (20% * 4)) / 4);
+}
+
+.card-image {
+  height: 70%;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+/**
+ * modal 
+ */
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* wrapper 위에서 화면 전체를 감싸는 부분 */
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0.5);
+}
+
+.modal-contents {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  height: 70%;
+  width: 30%;
+  padding: 10px;
+  background-color: var(--background);
+  color: var(--text-color);
+}
+
+.modal-image {
+  height: 60%;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+}
+
+.modal-title {
+  margin: 0;
+}
+
+/* spinner */
+.spinner-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(255, 255, 255, 0.7);
+}
+
+.spinner-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 49%;
+}
+
+/* error section */
+.error-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-image {
+  margin-top: 8%;
+  border-radius: 10%;
+}
+
+.status-code {
+  margin: 0;
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+.error-message {
+  margin-top: -15px;
+  font-size: 20px;
+}
+
+.return-btn {
+  margin-top: 15px;
+}
+
+/* darkmode button */
+.darkmode-btn {
+  font-size: 3rem;
+  position: fixed;
+  top: 1rem;
+  right: 5rem;
+  z-index: 3;
+}
